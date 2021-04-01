@@ -72,5 +72,5 @@ plt.xlabel("No. of iterations")
 plt.ylabel("No. of ones added")
 
 plt.show()
-print(ones)
+
 print("Peak value in plot 2 : %s"%max(onesadded))
