@@ -53,7 +53,7 @@ while left:
 				posof1s.append((i,j))
 			else :
 				left = True
-	for pos in posof1s:
+	for pos in set(posof1s):
 		modifyfirst(arr, pos[0], pos[1])
 		modifysecond(arr, pos[0], pos[1])
 	iterations+=1
@@ -72,5 +72,5 @@ plt.xlabel("No. of iterations")
 plt.ylabel("No. of ones added")
 
 plt.show()
-
+print(ones)
 print("Peak value in plot 2 : %s"%max(onesadded))
