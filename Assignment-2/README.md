@@ -10,4 +10,5 @@ My answers for the form in challenge 1 are as follows:
 6. ewer customers have bought bikes than have not bought bikes.
 7. Median yearly income is as follows: Management > Professional > Skilled Manual > Clerical > Manual Occupation
 8. Males of age between 25 to 40 spend most
-Male customers are more likely to buy bikes than female customers. Median yearly income is higher for customers who bought a bike.
+Male customers are more likely to buy bikes than female customers.  
+Median yearly income is higher for customers who bought a bike.
