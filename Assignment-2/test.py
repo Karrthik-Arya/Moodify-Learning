@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 
-data = pd.read_json('https://raw.githubusercontent.com/Karrthik-Arya/Moodify-Learning/master/Assignment-2/data.json')
+data = pd.read_json('https://raw.githubusercontent.com/Karrthik-Arya/Moodify-Learning/master/Assignment-2/input.json')
 data.columns = ['x', 'y', 'label']
 
 from train import coef
