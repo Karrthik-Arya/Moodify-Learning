@@ -14,4 +14,9 @@ My answers for the form in challenge 1 are as follows:
     Married customers have a higher median AvgMonthSpend than single customers.  
     Male customers have a higher median AvgMonthSpend than female customers.
 11. Male customers are more likely to buy bikes than female customers.  
-    Median yearly income is higher for customers who bought a bike.
+    Median yearly income is higher for customers who bought a bike.  
+The code for this project is in Problem-1.ipynb  
+The values of AveMonthSpend that I get by running my model on the test dataset is there in Problem-1.csv.
+
+## Problem-2
+In this the code for training the model is in train.py as well as Problem-2.ipynb. While code to test this is in test.py
