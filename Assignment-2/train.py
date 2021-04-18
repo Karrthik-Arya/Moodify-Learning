@@ -27,11 +27,8 @@ results = fn(data_train['x'], data_train['y'], coef)
 results = 1/(1+np.exp(-1*results))
 
 loss = -data_train['label']*np.log(results) - (1-data_train['label'])*np.log(1-results)
-loss = loss.sum()
-lr = 0.0006
-def sgn(a):
-  b = abs(a)
-  return a/b
+loss = loss.sum()/4800
+lr = 0.01
 
 def grada1(data, coef ):
   X = data['x']
@@ -39,60 +36,61 @@ def grada1(data, coef ):
   l = data['label']
   val = coef[0]*X**4+coef[1]*(X**3)*Y+coef[2]*(X**2)*(Y**2)+coef[3]*(X**1)*(Y**3)+coef[4]*(Y**4)
   grad = -(l/val)*(X**4)+((1-l)/(1-val))*(X**4)
-  return grad.sum()
+  return grad.sum()/4800
 def grada2(data, coef ):
   X = data['x']
   Y = data['y']
   l = data['label']
   val = coef[0]*X**4+coef[1]*(X**3)*Y+coef[2]*(X**2)*(Y**2)+coef[3]*(X**1)*(Y**3)+coef[4]*(Y**4)
   grad = -(l/val)*(X**3*Y)+((1-l)/(1-val))*(X**3*Y)
-  return grad.sum()
+  return grad.sum()/4800
 def grada3(data, coef ):
   X = data['x']
   Y = data['y']
   l = data['label']
   val = coef[0]*X**4+coef[1]*(X**3)*Y+coef[2]*(X**2)*(Y**2)+coef[3]*(X**1)*(Y**3)+coef[4]*(Y**4)
   grad = -(l/val)*(X**2*Y**2)+((1-l)/(1-val))*(X**2*Y**2)
-  return grad.sum()
+  return grad.sum()/4800
 def grada4(data, coef ):
   X = data['x']
   Y = data['y']
   l = data['label']
   val = coef[0]*X**4+coef[1]*(X**3)*Y+coef[2]*(X**2)*(Y**2)+coef[3]*(X**1)*(Y**3)+coef[4]*(Y**4)
   grad = -(l/val)*(X*(Y**3))+((1-l)/(1-val))*(X*(Y**3))
-  return grad.sum()
+  return grad.sum()/4800
 def grada5(data, coef ):
   X = data['x']
   Y = data['y']
   l = data['label']
   val = coef[0]*X**4+coef[1]*(X**3)*Y+coef[2]*(X**2)*(Y**2)+coef[3]*(X**1)*(Y**3)+coef[4]*(Y**4)
   grad = -(l/val)*(Y**4)+((1-l)/(1-val))*(Y**4)
-  return grad.sum()
+  return grad.sum()/4800
   
 
 
 for i in range(750):
-  coef[0] = coef[0] - lr*sgn(grada1(data, coef))
-  coef[1] = coef[1] - lr*sgn(grada2(data, coef))
-  coef[2] = coef[2] - lr*sgn(grada3(data, coef))
-  coef[3] = coef[3] - lr*sgn(grada4(data, coef))
-  coef[4] = coef[4] - lr*sgn(grada5(data, coef))
+  coef[0] = coef[0] - lr*grada1(data, coef)
+  coef[1] = coef[1] - lr*grada2(data, coef)
+  coef[2] = coef[2] - lr*grada3(data, coef)
+  coef[3] = coef[3] - lr*grada4(data, coef)
+  coef[4] = coef[4] - lr*grada5(data, coef)
 results = fn(data_train['x'], data_train['y'], coef)
 results = 1/(1+np.exp(-1*results))
 loss = -data_train['label']*np.log(results) - (1-data_train['label'])*np.log(1-results)
-loss = loss.sum()
+loss = loss.sum()/4800
+print(loss)
 
 def score_model(probs, threshold):
     return np.array([1 if x > threshold else 0 for x in probs[:]])
 
-scores = score_model(results, 0.52)
+scores = score_model(results, 0.56)
 
 results = fn(data_test['x'], data_test['y'], coef)
 results = 1/(1+np.exp(-1*results))
 loss = -data_train['label']*np.log(results) - (1-data_train['label'])*np.log(1-results)
-loss = loss.sum()
+loss = loss.sum()/1200
 print(loss)
-scores = score_model(results, 0.52)
+scores = score_model(results, 0.56)
 
 from sklearn import preprocessing
 import sklearn.model_selection as ms
