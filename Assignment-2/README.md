@@ -19,4 +19,4 @@ The code for this project is in Problem-1.ipynb
 The values of AveMonthSpend that I get by running my model on the test dataset is there in Problem-1.csv.
 
 ## Problem-2
-In this the code for training the model is in train.py as well as Problem-2.ipynb. While code to test this is in test.py
+In this the code for training the model is in train.py. The inital notebook wehere I have printed some stats and had written the code for traing the model is problem-2.ipynb. While code to test this is in test.py which takes in input.json which has not been given. 
